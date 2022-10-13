@@ -12,7 +12,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { userProfileSiceAction } from "../../reduxStore/store";
 import { SwiperSlide } from "swiper/react";
 import Swipe from "../../helper/swiper";
-//Flex is a div container having display flex
+
 
 const ManageIconsProfile = (props) => {
   const dispatch = useDispatch();

@@ -97,9 +97,6 @@ const List = ({ getQuery, topic, type }) => {
 
             {display &&  (
               <ContentHover
-                initial={false}
-                animate={{ x: 0 }}
-                transition={{ ease: "easeOut", duration: 2}}
                 left={index}
                 onMouseLeave={() => {
                   setDisplay(false);

@@ -2,9 +2,10 @@ import Logo from "../assets/Logo";
 import Footer from "../components/Footer";
 import SignUp from '../components/forms/SignUp'
 import background from "../assets/home-bg.jpg";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router";
 
-const Login = () => {
+const Signup = () => {
+  const navigate=useNavigate()
   return (
     <section
       style={{
@@ -12,13 +13,13 @@ const Login = () => {
     radial-gradient(90% 100%, transparent 0, rgba(0, 0, 0, 0.7) 100%),url(${background})`,
       }}
     >
-      <Link to="/">
-        <Logo width={"8rem"} padding={"1.5rem 2.5rem"} />
-      </Link>
+     <div onClick={()=>{navigate('/')}}>
+          <Logo width={"8rem"} padding={"1.5rem 2.5rem"} />
+      </div>
       <SignUp />
       <Footer bgColor="rgb(0, 0, 0,0.65)" />
     </section>
   );
 };
 
-export default Login;
+export default Signup;

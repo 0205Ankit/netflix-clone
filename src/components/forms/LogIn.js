@@ -11,6 +11,7 @@ import Spinner from "../spinner";
 import { Error } from "../../styles/globalStyles";
 import { useNavigate } from "react-router";
 
+
 const LogIn = () => {
 
 
@@ -33,8 +34,8 @@ const LogIn = () => {
     setLoading(true)
     e.preventDefault()
     try{
-       await signingIn(email.value,password.value)
-       navigate('/profile')
+      await signingIn(email.value,password.value)
+      navigate('/profile')
     }catch(err){
      setError(err.message)
      setLoading(false)
@@ -65,7 +66,6 @@ const LogIn = () => {
           <LabelField up={email.isFocused} htmlFor="email">
             Email or phone number
           </LabelField>
-          {/* up wala feature */}
         </InputFieldContainer>
         <InputFieldContainer>
           <InputField
@@ -91,7 +91,6 @@ const LogIn = () => {
         <Button disabled={isInvalid}>
           {loading ? <Spinner /> : "Sign In"}
         </Button>
-        {/* diabled wala feature */}
         <Text>
           <span>
             New to Netflix?

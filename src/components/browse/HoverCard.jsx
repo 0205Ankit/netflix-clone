@@ -10,9 +10,6 @@ const HoverCard = ({ data, param, type }) => {
 
     return <>
         {data && <ContentHover
-            initial={false}
-            animate={{ x: 100 }}
-            transition={{ ease: "easeOut", duration: 2 }}
             transform={'translateX(-17%)'}
             >
             

@@ -5,10 +5,9 @@ import {
   Footers,
   FooterTitle,
 } from "../styles/homepage/FooterStyle";
-// import { example } from "../services/api";
 
 const Footer =({ bgColor }) => {
-// console.log(await (await example()).json())
+
   return (
     <Footers style={{ backgroundColor: bgColor }}>
       <FooterContainer>

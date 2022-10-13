@@ -18,7 +18,7 @@ const useLoggedInUser = () => {
          user&& dispatch(userSliceActions.setUser(null));
 
       }
-    }); //cleanup function can also be used in future if any error occurs
+    }); 
   }, [dispatch]);
 
   return null;

@@ -3,7 +3,6 @@ import styled from "styled-components";
 import TotalProfile from "../components/profile/totalProfiles";
 import CreateProfile from "../components/profile/createProfile";
 import { useState } from "react";
-
 const Main = styled.main`
   background-color: #141414;
   width: 100vw;
@@ -12,6 +11,7 @@ const Main = styled.main`
 
 
 const Profile = () => {
+
 
     const[totalProfiles,setTotalProfiles]=useState(true)
 

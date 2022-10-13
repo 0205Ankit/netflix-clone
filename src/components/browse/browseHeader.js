@@ -9,15 +9,18 @@ import {
   EditIconContainer,SignOutLink,Section,
 } from '../../styles/browseStyle/browseHeader';
 import Logo from '../../assets/Logo';
-import { useEffect, useState, useMemo } from 'react';
+import { useEffect, useState, useMemo, useCallback } from 'react';
 import useProfileData from '../../hooks/profilData-hook';
 import { useNavigate,useLocation,useSearchParams} from 'react-router-dom';
 import EditIcon from '../../assets/editIcon';
 import { signOutUser } from '../../services/firebase';
 import _ from 'lodash';
+import { userSliceActions } from '../../reduxStore/store';
+import { useDispatch } from 'react-redux';
 
 
 const BrowseHeader = (props) => {
+  const dispatch=useDispatch()
   const [showInput, setShowInput] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const location = useLocation();
@@ -28,15 +31,15 @@ const BrowseHeader = (props) => {
     return e.profilename !== props.profData.profilename;
   });
   const navigate = useNavigate();
-  const changeHandler = (e) => {
+  const changeHandler = useCallback((e) => {
     if (e.target.value.trim() === '' || e.target.value.length <= 0) {
       navigate('/browse');
     } else {
       navigate(`/browse/search?q=${e.target.value}`, { replace: true });
     }
-  };
+  },[navigate]);
 
-  const debounceHandler = useMemo(() => _.debounce(changeHandler, 500), []);
+  const debounceHandler = useMemo(() => _.debounce(changeHandler, 300), [changeHandler]);
   useEffect(() => {
     window.addEventListener('scroll', () => {
       if (window.scrollY > 0) {
@@ -161,8 +164,10 @@ const BrowseHeader = (props) => {
                   <div>Manage Profiles</div>
                 </ProfileLinks>
                 <SignOutLink
-                  to="/login"
+                to='/login'
                   onClick={async () => {
+                    dispatch(userSliceActions.setUser(null))
+                    localStorage.removeItem('authUser')
                     localStorage.removeItem('user-profile');
                     await signOutUser();
                   }}

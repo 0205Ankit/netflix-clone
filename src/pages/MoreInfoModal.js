@@ -37,7 +37,6 @@ import _ from 'lodash'
 
 
 const MoreInfoModal = ({ type, getData }) => {
-  console.log(type)
   const [params] = useSearchParams();
   const { data, isLoading } = getData(params.get(type));
   const [dropdown, setDropdown] = useState('none');

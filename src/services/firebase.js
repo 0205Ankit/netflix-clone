@@ -48,14 +48,13 @@ export const signingIn = async (email, password) => {
 export const createUserProfile = async (id, profileId, username,imgPath) => {
   const docRef = collection(doc(colRef, id), "profile");
   const profileDoc = doc(docRef, profileId);
-  const response =  await setDoc(profileDoc, {
+   await setDoc(profileDoc, {
     profilename: username,
     profileId,
     myList: [],
     imgPath,
     createdAt: serverTimestamp(),
   });
-  console.log(response)
 };
 
 export const getuserByUserId = async (userId) => {

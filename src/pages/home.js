@@ -16,7 +16,6 @@ import styled from "styled-components";
 import { useLocation } from "react-router";
 import Footer from '../components/Footer'
 import TopTen from "../components/browse/top10List";
-import ScrollToTop from "../helper/scroll-to-top";
 
 const Section = styled.section`
   position: ${(props) => props.position};
@@ -34,7 +33,6 @@ const Home = () => {
 
   return (
     <>
-    <ScrollToTop/>
         <Section position={position}>
           <BillBoard info={usePopularMoviesQuery()} type={'movie'} />
           <List getQuery={useNowPlayingMovieQuery} topic={"Now Playing"} type={'movie'} />
