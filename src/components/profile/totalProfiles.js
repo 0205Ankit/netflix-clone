@@ -24,7 +24,7 @@ const TotalProfile = (props) => {
       <Headings size={"2.8rem"} color={"white"} weight={"500"} align={"center"}>
         Who's Watching?
       </Headings>
-      {!loading && (
+      {!loading &&profData && (
         <>
           <ProfileContainer alignCenter justifyCenter>
             {profData.map((profile) => {
