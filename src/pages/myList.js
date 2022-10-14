@@ -10,7 +10,7 @@ import { useSearchParams, useLocation } from 'react-router-dom';
 import Footer from '../components/Footer';
 import { IMG_PATH } from '../constants/apiConstants';
 import HoverCard from '../components/browse/HoverCard';
-import { Headings, Wrapper } from '../styles/globalStyles';
+import { Headings, MyListWrapper, Wrapper } from '../styles/globalStyles';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 
 const MyList = () => {
@@ -41,8 +41,8 @@ const MyList = () => {
       {data && userid ? (
         <>
           {data.length > 0 ? (
-            <div style={{ width: '92%', position: `${display}` }}>
-              <Wrapper>
+            <div style={{ width: '92%', position: `${display}`,margin:'auto' }}>
+              <MyListWrapper>
                 <Headings
                   size={'2rem'}
                   weight="400"
@@ -64,7 +64,7 @@ const MyList = () => {
                   })}
                 </SearchContainer>
                 <Footer bgColor={'#141414'} />
-              </Wrapper>
+              </MyListWrapper>
             </div>
           ) : (
             <NotFoundContainer>

@@ -115,9 +115,9 @@ export const Title = styled.span`
   export const Image = styled.img`
   box-sizing: border-box;
     min-width: 13.05rem;
-    width: 13.05rem;
+    max-width: 13.05rem;
     min-height: 7.5rem;
-    height:7.5rem;
+    max-height:7.5rem;
     border-radius: 2px;
     cursor: pointer;
   `;

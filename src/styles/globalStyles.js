@@ -189,3 +189,11 @@ max-width: 92%;
 margin: auto;
 position:${props=>props.display};
 `
+
+export const MyListWrapper = styled.div`
+  position: relative;
+  min-height: 100vh;
+  max-width: 100%;
+  margin: auto;
+  position: ${(props) => props.display};
+`;

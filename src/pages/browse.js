@@ -32,8 +32,8 @@ const Browse = () => {
     <>
       {!error ? (
         <section style={{ minHeight: "100vh" }}>
-          <BrowseHeader profData={profData} />
           <ScrollToTop/>
+          <BrowseHeader profData={profData} />
           <Main>
             <Suspense fallback={<Fallback />}>
               <Routes>
