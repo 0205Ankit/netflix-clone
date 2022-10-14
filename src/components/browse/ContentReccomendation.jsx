@@ -77,7 +77,7 @@ const ContentReccomendation = ({ id,type,getData}) => {
                           </ReleaseYear>}
                         </div>
                       </div>
-                      <Buttons item={item}/>
+                      <Buttons item={item} type={`${type}Id`}/>
                     </Trivia>
                     <OverView>{item.overview}</OverView>
                   </Info>
