@@ -78,8 +78,8 @@ const MyList = () => {
             <SkeletonTheme baseColor="#222" highlightColor="#333">
               <Skeleton
                 count={6}
-                height="7.5rem"
-                width="13.05rem"
+                height={110}
+                width={200}
                 style={{ marginRight: '6px' }}
                 inline={true}
               />
@@ -94,8 +94,12 @@ const MyList = () => {
 export default MyList;
 
 const Card = ({ data, param, type }) => {
+  const [imgWidth,setImgWidth]=useState()
   const [display, setDisplay] = useState();
-  useEffect(() => {}, [data]);
+  useEffect(() => {
+     const changeWidth = window.innerWidth > 1400 ? 210 : 195;
+     setImgWidth(changeWidth);
+  }, [data]);
   return (
     <>
       <div
@@ -109,6 +113,7 @@ const Card = ({ data, param, type }) => {
         }}
       >
         <Image
+        style={{maxWidth:`${imgWidth}px`}}
           src={`${IMG_PATH}/${data.backdrop_path}`}
           alt={'contentImage'}
         ></Image>

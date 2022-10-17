@@ -50,7 +50,7 @@ const MoreInfoModal = ({ type, getData }) => {
      const profId = JSON.parse(localStorage.getItem('user-profile')).profileId;
     const currentProfile= async()=>{
       const currProfile = await activeProfile(userId, profId);
-      const currData= _.some(currProfile.myList,data)
+      const currData= currProfile.myList.filter((item)=>item.id===data.id).length>0?true:false
       setShowAddIcon(currData)
       setLoadingContent(true) 
     }

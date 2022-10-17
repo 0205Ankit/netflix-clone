@@ -8,6 +8,7 @@ import Top10 from '../../assets/top10';
 import { IMG_PATH } from '../../constants/apiConstants';
 import { useInView } from 'react-intersection-observer';
 import { useNavigate } from 'react-router';
+import { useEffect,useState } from 'react';
 
 const PositionContainer=styled.div`
 display: flex;
@@ -23,16 +24,21 @@ height: 155px;
 `
 
 const TopTen=({getQuery,type,topic})=>{
+  const [imgWidth,setImgWidth]=useState()
   const navigate=useNavigate()
     const { inView, ref } = useInView({
       delay: 200,
       triggerOnce: true,
-      threshold: 0.3,
+      threshold: 0.2,
     });
     const { data, isLoading } = getQuery(undefined, {
       skip: !inView,
     });
   
+    useEffect(()=>{
+      const changeWidth=window.innerWidth>1400?210:195
+      setImgWidth(changeWidth)
+    },[])
 
     return (
       <div ref={ref}>
@@ -62,7 +68,7 @@ const TopTen=({getQuery,type,topic})=>{
                     >
                       <PositionContainer>
                         <Top10 index={i} width="100px" />
-                        <Image src={`${IMG_PATH}/${e.poster_path}`} />
+                        <Image  src={`${IMG_PATH}/${e.poster_path}`} />
                       </PositionContainer>
                     </SwiperSlide>
                   );
@@ -75,9 +81,9 @@ const TopTen=({getQuery,type,topic})=>{
             <SkeletonTheme baseColor="#222" highlightColor="#333">
               <Skeleton
                 count={6}
-                height={115}
-                width={210}
-                style={{ marginRight: "10px" }}
+                height={110}
+                width={200}
+                style={{ marginRight: "8px" }}
                 inline={true}
                 />
             </SkeletonTheme>

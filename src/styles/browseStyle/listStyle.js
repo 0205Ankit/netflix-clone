@@ -114,10 +114,10 @@ export const Title = styled.span`
 
   export const Image = styled.img`
   box-sizing: border-box;
-    min-width: 13.05rem;
-    max-width: 13.05rem;
-    min-height: 7.5rem;
-    max-height:7.5rem;
+    /* min-width: 13.05rem; */
+    /* max-width: 12.2rem; */
+    /* min-height: 7.5rem; */
+    /* max-height:7rem; */
     border-radius: 2px;
     cursor: pointer;
   `;
@@ -127,7 +127,7 @@ export const SearchContainer=styled.div`
    position: relative;
    flex-wrap: wrap;
    display: flex;
-   gap: 0.6rem;
+   gap: 0.4rem;
    width: 100%;
    margin: auto;
    margin-top: 2rem;

@@ -74,6 +74,7 @@ const Card=({data,param,type})=>{
           onMouseLeave={()=>{setDisplay(false)}}
         >
           <Image
+          style={{maxWidth:`${window.innerWidth>1400?'210px':'195px'}`}}
             src={`${IMG_PATH}/${data.backdrop_path}`}
             alt={'contentImage'}
           ></Image>

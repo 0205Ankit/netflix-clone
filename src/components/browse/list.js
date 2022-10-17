@@ -13,11 +13,12 @@ import  Buttons from '../../helper/buttons';
 
 
 const List = ({ getQuery, topic, type }) => {
+  const [imageWidth, setImageWidth] = useState(210);
 
   const {inView,ref} = useInView({
     delay:200,
     triggerOnce:true,
-    threshold:0.3,
+    threshold:0.2,
   })
   const { data, isLoading } = getQuery(undefined, {
     skip: !inView,
@@ -31,7 +32,8 @@ const List = ({ getQuery, topic, type }) => {
 
   useEffect(() => {
     if (data) {
-
+     const changeWidth = window.innerWidth > 1400 ? 210 : 195;
+      setImageWidth(changeWidth);
       const myData = [...data.results];
       function shuffle(array) {
         let currentIndex = array.length,
@@ -80,6 +82,7 @@ const List = ({ getQuery, topic, type }) => {
                 return (
                   <SwiperSlide key={i}>
                     <Image
+                    style={{maxWidth:`${imageWidth}px`}}
                       src={`${IMG_PATH}/${e.backdrop_path}`}
                       onClick={() => {
                           if (i <= 5) {setIndex(i);}
@@ -130,9 +133,9 @@ const List = ({ getQuery, topic, type }) => {
           <SkeletonTheme baseColor="#222" highlightColor="#333">
             <Skeleton
               count={6}
-              height={115}
-              width={210}
-              style={{ marginRight: '10px' }}
+              height={110}
+              width={200}
+              style={{ marginRight: '8px' }}
               inline={true}
             />
           </SkeletonTheme>

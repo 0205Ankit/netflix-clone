@@ -15,7 +15,8 @@ const Buttons = ({ item,type }) => {
     const profId = JSON.parse(localStorage.getItem('user-profile')).profileId;
     const currentProfile = async () => {
       const currProfile = await activeProfile(userId, profId);
-      setShowAddIcon(_.some(currProfile.myList, item));
+      const currData=currProfile.myList.filter((content)=>content.id===item.id).length>0?true:false
+      setShowAddIcon(currData);
     };
     if (userId) {
       currentProfile();
