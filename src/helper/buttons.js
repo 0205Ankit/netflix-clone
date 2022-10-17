@@ -39,11 +39,13 @@ const Buttons = ({ item,type }) => {
 
   const removeFromListHandler = async (content) => {
     const profId = JSON.parse(localStorage.getItem('user-profile')).profileId;
+     const currProfile = await activeProfile(userId, profId);
+      const currData= currProfile.myList.filter((item)=>item.id===content.id)
     try {
       setShowAddIcon((prev) => {
         return !prev;
       });
-      await removeFromList(userId, profId, {...content,type});
+      await removeFromList(userId, profId, ...currData);
     } catch {
       setShowAddIcon((prev) => {
         return !prev;
