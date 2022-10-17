@@ -16,7 +16,7 @@ const List = ({ getQuery, topic, type }) => {
   const [imageWidth, setImageWidth] = useState(210);
 
   const {inView,ref} = useInView({
-    delay:200,
+    delay:100,
     triggerOnce:true,
     threshold:0.2,
   })
@@ -134,7 +134,7 @@ const List = ({ getQuery, topic, type }) => {
             <Skeleton
               count={6}
               height={110}
-              width={200}
+              width={195}
               style={{ marginRight: '8px' }}
               inline={true}
             />

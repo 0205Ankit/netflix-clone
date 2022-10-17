@@ -24,10 +24,10 @@ height: 155px;
 `
 
 const TopTen=({getQuery,type,topic})=>{
-  const [imgWidth,setImgWidth]=useState()
+
   const navigate=useNavigate()
     const { inView, ref } = useInView({
-      delay: 200,
+      delay: 100,
       triggerOnce: true,
       threshold: 0.2,
     });
@@ -35,10 +35,6 @@ const TopTen=({getQuery,type,topic})=>{
       skip: !inView,
     });
   
-    useEffect(()=>{
-      const changeWidth=window.innerWidth>1400?210:195
-      setImgWidth(changeWidth)
-    },[])
 
     return (
       <div ref={ref}>
@@ -82,7 +78,7 @@ const TopTen=({getQuery,type,topic})=>{
               <Skeleton
                 count={6}
                 height={110}
-                width={200}
+                width={195}
                 style={{ marginRight: "8px" }}
                 inline={true}
                 />
